@@ -20,6 +20,7 @@ const AddExpenses = ({ labelName, type }) => {
           border: "1px solid rgb(201,201,201) ",
           borderRadius: "0.3rem",
         }}
+        
       />
     </AddExpenses_container>
   );

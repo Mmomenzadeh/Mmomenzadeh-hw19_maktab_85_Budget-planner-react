@@ -1,0 +1,28 @@
+.modal-ui{
+    border: 1px solid rgb(212, 212, 212);
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+}
+
+.modal-input{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    text-align: center;
+}
+
+.modal-btn{
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    background-color: #007bff;
+    color: #fff;
+}

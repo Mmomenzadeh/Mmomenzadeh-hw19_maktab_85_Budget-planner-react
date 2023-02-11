@@ -27,8 +27,8 @@ const Footer =()=>{
         <div className="footer-ui">
             <H2>Add Expenses</H2>
             <Input_container>
-            <AddExpenses type={'text'} labelName={'Name'}/>
-            <AddExpenses type={'number'} labelName={'Cost'}/>    
+            <AddExpenses type={'text'} labelName={'Name'} />
+            <AddExpenses type={'number'} labelName={'Cost'} />    
             </Input_container>        
             <Btn_save>Save</Btn_save>    
         </div>

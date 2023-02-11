@@ -7,6 +7,8 @@ import styled from "@emotion/styled";
 
 const App_container = styled.div`
   padding: 1rem 3rem;
+  position: absolute;
+
 `;
 
 function App() {

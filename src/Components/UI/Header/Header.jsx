@@ -1,35 +1,51 @@
-import BudgetBox from "./BudgetBox/BudgetBox"
-import styled from "@emotion/styled"
+import BudgetBox from "./BudgetBox/BudgetBox";
+import styled from "@emotion/styled";
 
 const Headerdiv = styled.div`
-margin-bottom: 1.5rem;
-
-`
+  margin-bottom: 1.5rem;
+`;
 const Budgetboxs = styled.div`
-display: flex;
-gap: 1.5rem;
-`
+  display: flex;
+  gap: 1.5rem;
+`;
 
 const H1 = styled.h1`
-font-size: 30px;
-color: #213547;
-font-weight: 600;
-margin-bottom: 1rem;
+  font-size: 30px;
+  color: #213547;
+  font-weight: 600;
+  margin-bottom: 1rem;
+`;
+const Header = () => {
+  return (
+    <Headerdiv>
+      <H1>My Bugdet Planner</H1>
 
-`
-const Header =()=>{
-    return(
-       <Headerdiv>
-        <H1>My Bugdet Planner</H1>
-        
-        <Budgetboxs>
-            <BudgetBox budgetPlanner={"Budget"} mony={2000} buttonStatus={true} style={"#e2e3e5"}/>
-            <BudgetBox budgetPlanner={"Remaining"} mony={1040} buttonStatus={false} style={"#d4edda"}/>
-            <BudgetBox budgetPlanner={"Spent so far"} mony={960} buttonStatus={false} style={"#cce5ff"}/>
+      <Budgetboxs>
+        <BudgetBox
+          color={"secondary"}
+          budgetPlanner={"Budget"}
+          mony={2000}
+          buttonStatus={true}
+          style={"#e2e3e5"}
+         
+        />
+        <BudgetBox
+          budgetPlanner={"Remaining"}
+          mony={1040}
+          buttonStatus={false}
+          style={"#d4edda"}
 
-        </Budgetboxs>
-       </Headerdiv>
-    )
-}
+        />
+        <BudgetBox
+          budgetPlanner={"Spent so far"}
+          mony={960}
+          buttonStatus={false}
+          style={"#cce5ff"}
+        color={"primary"}
+        />
+      </Budgetboxs>
+    </Headerdiv>
+  );
+};
 
-export default Header
+export default Header;
