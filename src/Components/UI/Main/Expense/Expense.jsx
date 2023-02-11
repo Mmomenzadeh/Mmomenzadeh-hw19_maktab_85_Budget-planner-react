@@ -29,8 +29,8 @@ const Expense = () => {
       <p>Shopping</p>
       <Icons_container>
         <Expense_value>$50</Expense_value>
-        <AiFillCloseCircle />
-      </Icons_container>
+        <AiFillCloseCircle  style={{cursor:"pointer"}}/>
+      </Icons_container >
     </Li>
   );
 };

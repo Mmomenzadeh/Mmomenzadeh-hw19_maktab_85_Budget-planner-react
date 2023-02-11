@@ -10,11 +10,11 @@ const App_container = styled.div`
 
 function App() {
   return (
-    <div className="app-ui">
+    <App_container>
       <Header />
       <Main />
       <Footer />
-    </div>
+    </App_container>
   );
 }
 export default App;
