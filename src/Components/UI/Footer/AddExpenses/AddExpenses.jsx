@@ -8,7 +8,7 @@ const AddExpenses_container = styled.div`
   margin-top: 0.8rem;
 `;
 
-const AddExpenses = ({ labelName, type }) => {
+const AddExpenses = ({ labelName, type,onChange ,value}) => {
   return (
     <AddExpenses_container>
       <label>{labelName}</label>
@@ -20,7 +20,8 @@ const AddExpenses = ({ labelName, type }) => {
           border: "1px solid rgb(201,201,201) ",
           borderRadius: "0.3rem",
         }}
-        
+        onChange={onChange}
+        value={value}
       />
     </AddExpenses_container>
   );

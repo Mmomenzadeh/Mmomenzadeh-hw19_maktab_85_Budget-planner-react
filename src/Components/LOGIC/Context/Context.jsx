@@ -1,24 +1,20 @@
 import React, { useState, createContext , useReducer } from "react";
 import { Reducer } from "../Reducer/Reducer";
 
-export const BudgetContext = createContext({
-  expense: {},
-  setExpense: () => {},
-  BudgetState:[] , dispatch :(command)=>{}
+export const ExpensesContext = createContext({
+  ExpensesState:[] , dispatch :(command)=>{},
 });
 
-const BudgetContextProvider = ({ children }) => {
-  const [expense, setExpense] = useState({ name: "", cost: 0, id: "" });
-  const [BudgetState , dispatch ] = useReducer(Reducer , [])
+const ExpensesContextProvider = ({ children }) => {
+  const [ExpensesState , dispatch ] = useReducer(Reducer , [])
 
 
-  const [ Budget, setBudget]=useState(0)
 
   return (
-    <BudgetContext.Provider value={{ expense, setExpense ,BudgetState , dispatch }}>
+    <ExpensesContext.Provider value={{ExpensesState , dispatch  }}>
       {children}
-    </BudgetContext.Provider>
+    </ExpensesContext.Provider>
   );
 };
 
-export default BudgetContextProvider;
+export default ExpensesContextProvider;

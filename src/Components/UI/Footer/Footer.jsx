@@ -1,6 +1,8 @@
-import AddExpenses from "./AddExpenses/AddExpenses"
+import AddExpenses from "./AddExpenses/AddExpenses";
 
 import styled from "@emotion/styled";
+import { useContext, useState } from "react";
+import { ExpensesContext } from "../../LOGIC/Context/Context";
 
 const H2 = styled.h2`
   font-size: 25px;
@@ -8,10 +10,9 @@ const H2 = styled.h2`
   font-weight: 600;
 `;
 const Input_container = styled.div`
-
   display: flex;
   gap: 1rem;
-`
+`;
 const Btn_save = styled.button`
   border: none;
   background-color: #007bff;
@@ -21,18 +22,40 @@ const Btn_save = styled.button`
   cursor: pointer;
 
 `;
-const Footer =()=>{
+const Footer = () => {
+  const { dispatch } = useContext(ExpensesContext);
+  const [expense, setExpense] = useState({ name: "", cost: 0 });
+  const handleSaveExpense = () => {
+    dispatch({
+      type: "creat_ExpensesList",
+      payload: {
+        name: expense.name,
+        cost: expense.cost,
+      },
+    });
 
-    return(
-        <div className="footer-ui">
-            <H2>Add Expenses</H2>
-            <Input_container>
-            <AddExpenses type={'text'} labelName={'Name'} />
-            <AddExpenses type={'number'} labelName={'Cost'} />    
-            </Input_container>        
-            <Btn_save>Save</Btn_save>    
-        </div>
-    )
-}
+    setExpense({name: "", cost: 0 })
+  };
+  return (
+    <div>
+      <H2>Add Expenses</H2>
+      <Input_container>
+        <AddExpenses
+          type={"text"}
+          labelName={"Name"}
+          onChange={(e) => setExpense({ ...expense, name: e.target.value })}
+          value={expense.name}
+        />
+        <AddExpenses
+          type={"number"}
+          labelName={"Cost"}
+          onChange={(e) => setExpense({ ...expense, cost: e.target.value })}
+          value={expense.cost}
+        />
+      </Input_container>
+      <Btn_save onClick={handleSaveExpense}>Save</Btn_save>
+    </div>
+  );
+};
 
-export default Footer
+export default Footer;

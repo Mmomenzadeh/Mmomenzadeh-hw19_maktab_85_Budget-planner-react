@@ -1,10 +1,8 @@
-export const Reducer = (BudgetState, action) => {
+export const Reducer = (ExpensesState, action) => {
   switch (action.type) {
-    case "set_Budget":
-      return action.payload.budget;
-    case "creat_BudgetList":
+    case "creat_ExpensesList":
       return [
-        ...BudgetState,
+        ...ExpensesState,
         {
           name: action.payload.name,
           cost: action.payload.cost,
@@ -12,16 +10,16 @@ export const Reducer = (BudgetState, action) => {
         },
       ];
 
-      case "Edite_BudgetItem":
+      case "edite_BudgetItem":
         return
 
-      case "Delete_BudgetItem":
-            return
+      case "delete_ExpenseItem":
+            return  ExpensesState.filter((item)=>item.id !== action.payload)
       
-      case "Search" :
+      case "search" :
         return
         
     default:
-      break;
+      return ExpensesState
   }
 };

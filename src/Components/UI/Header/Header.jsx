@@ -1,10 +1,11 @@
 import BudgetBox from "./BudgetBox/BudgetBox";
 import styled from "@emotion/styled";
+import { useState } from "react";
 
-const Headerdiv = styled.div`
+const Header_div = styled.div`
   margin-bottom: 1.5rem;
 `;
-const Budgetboxs = styled.div`
+const Budgetboxs_div = styled.div`
   display: flex;
   gap: 1.5rem;
 `;
@@ -15,36 +16,35 @@ const H1 = styled.h1`
   font-weight: 600;
   margin-bottom: 1rem;
 `;
+
+
 const Header = () => {
+  const [ Budget, setBudget]=useState(0)
   return (
-    <Headerdiv>
+    <Header_div>
       <H1>My Bugdet Planner</H1>
 
-      <Budgetboxs>
+      <Budgetboxs_div>
         <BudgetBox
-          color={"secondary"}
           budgetPlanner={"Budget"}
-          mony={2000}
+          mony={Budget}
           buttonStatus={true}
-          style={"#e2e3e5"}
-         
+          color={"secondary"}
+          setBudget={setBudget}
         />
         <BudgetBox
           budgetPlanner={"Remaining"}
           mony={1040}
           buttonStatus={false}
-          style={"#d4edda"}
-
         />
         <BudgetBox
           budgetPlanner={"Spent so far"}
           mony={960}
           buttonStatus={false}
-          style={"#cce5ff"}
-        color={"primary"}
+          color={"primary"}
         />
-      </Budgetboxs>
-    </Headerdiv>
+      </Budgetboxs_div>
+    </Header_div>
   );
 };
 
