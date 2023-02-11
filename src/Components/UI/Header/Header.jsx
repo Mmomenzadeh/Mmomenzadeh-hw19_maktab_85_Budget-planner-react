@@ -2,6 +2,7 @@ import BudgetBox from "./BudgetBox/BudgetBox"
 import styled from "@emotion/styled"
 
 const Headerdiv = styled.div`
+margin-bottom: 1.5rem;
 
 `
 const Budgetboxs = styled.div`
@@ -10,7 +11,7 @@ gap: 1.5rem;
 `
 
 const H1 = styled.h1`
-font-size: 25px;
+font-size: 30px;
 color: #213547;
 font-weight: 600;
 margin-bottom: 1rem;
@@ -18,16 +19,16 @@ margin-bottom: 1rem;
 `
 const Header =()=>{
     return(
-       <div>
+       <Headerdiv>
         <H1>My Bugdet Planner</H1>
         
         <Budgetboxs>
-            <BudgetBox budgetPlanner={"Budget"} mony={2000} buttonStatus={true}/>
-            <BudgetBox budgetPlanner={"Remaining"} mony={1040} buttonStatus={false}/>
-            <BudgetBox budgetPlanner={"Spent so far"} mony={960} buttonStatus={false}/>
+            <BudgetBox budgetPlanner={"Budget"} mony={2000} buttonStatus={true} style={"#e2e3e5"}/>
+            <BudgetBox budgetPlanner={"Remaining"} mony={1040} buttonStatus={false} style={"#d4edda"}/>
+            <BudgetBox budgetPlanner={"Spent so far"} mony={960} buttonStatus={false} style={"#cce5ff"}/>
 
         </Budgetboxs>
-       </div>
+       </Headerdiv>
     )
 }
 
