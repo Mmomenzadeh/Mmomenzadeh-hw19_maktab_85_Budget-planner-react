@@ -3,7 +3,8 @@ import { ExpensesContext } from "../LOGIC/Context/Context";
 
 import "./Modal.css";
 export const Modal = ({ children, status, onClose, setBudget ,id }) => {
-  const { dispatch } = useContext(ExpensesContext);
+  const { dispatch ,ExpensesState ,setSpend , } = useContext(ExpensesContext);
+
   const [inputValue, setInputValue] = useState(0);
   
   const handleChange = (e) => {
@@ -17,11 +18,20 @@ export const Modal = ({ children, status, onClose, setBudget ,id }) => {
  
 
   const handleDelete = () => {
-
     dispatch({
       type: "delete_ExpenseItem",
       payload: id,
     });
+   
+    ExpensesState.map((item)=>{
+      if(item.id === id){
+
+        return setSpend((prev) => prev - Number(item.cost));
+
+      }
+    })
+     
+
   };
 
   return (
@@ -49,7 +59,7 @@ export const Modal = ({ children, status, onClose, setBudget ,id }) => {
                 Save Changes
               </button>
             ) : (
-              <button onClick={handleDelete} className="modal-btn delte-btn">
+              <button onClick={()=>{handleDelete()}} className="modal-btn delte-btn">
                 Delete
               </button>
             )}

@@ -1,6 +1,7 @@
 import BudgetBox from "./BudgetBox/BudgetBox";
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ExpensesContext } from "../../LOGIC/Context/Context";
 
 const Header_div = styled.div`
   margin-bottom: 1.5rem;
@@ -17,9 +18,19 @@ const H1 = styled.h1`
   margin-bottom: 1rem;
 `;
 
-
 const Header = () => {
-  const [ Budget, setBudget]=useState(0)
+  const { spent } = useContext(ExpensesContext);
+  const [Budget, setBudget] = useState(0);
+  const [Remaining, setRemaining] = useState(0);
+
+  useEffect(() => {
+    if (Budget === 0) {
+      return setRemaining(0);
+    } else {
+      setRemaining(Number(Budget) - Number(spent));
+    }
+  }, [Budget, spent]);
+
   return (
     <Header_div>
       <H1>My Bugdet Planner</H1>
@@ -34,12 +45,12 @@ const Header = () => {
         />
         <BudgetBox
           budgetPlanner={"Remaining"}
-          mony={1040}
+          mony={Remaining}
           buttonStatus={false}
         />
         <BudgetBox
           budgetPlanner={"Spent so far"}
-          mony={960}
+          mony={spent}
           buttonStatus={false}
           color={"primary"}
         />

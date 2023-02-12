@@ -1,7 +1,7 @@
 import AddExpenses from "./AddExpenses/AddExpenses";
 
 import styled from "@emotion/styled";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ExpensesContext } from "../../LOGIC/Context/Context";
 
 const H2 = styled.h2`
@@ -20,11 +20,9 @@ const Btn_save = styled.button`
   padding: 0.5rem;
   border-radius: 0.3rem;
   cursor: pointer;
-
 `;
 const Footer = () => {
-  const { dispatch } = useContext(ExpensesContext);
-  const [expense, setExpense] = useState({ name: "", cost: 0 });
+  const {expense, setExpense , dispatch, setSpend , } = useContext(ExpensesContext);
   const handleSaveExpense = () => {
     dispatch({
       type: "creat_ExpensesList",
@@ -34,8 +32,10 @@ const Footer = () => {
       },
     });
 
-    setExpense({name: "", cost: 0 })
+    setSpend((prev) => prev + Number(expense.cost));
+    setExpense({ name: "", cost: 0 });
   };
+
   return (
     <div>
       <H2>Add Expenses</H2>

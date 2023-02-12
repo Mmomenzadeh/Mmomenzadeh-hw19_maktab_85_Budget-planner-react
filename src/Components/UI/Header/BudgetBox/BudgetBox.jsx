@@ -10,7 +10,6 @@ const handleColorType = color => {
   case "secondary":
   return "#e2e3e5";
   default:
-    console.log(color)
   return "#cce5ff";
   }
   };
