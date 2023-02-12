@@ -42,17 +42,23 @@ const Header = () => {
           buttonStatus={true}
           color={"secondary"}
           setBudget={setBudget}
+          colorText={"gray"}
         />
         <BudgetBox
           budgetPlanner={"Remaining"}
           mony={Remaining}
           buttonStatus={false}
+          colorText={"blue"}
+         
+
         />
         <BudgetBox
           budgetPlanner={"Spent so far"}
           mony={spent}
           buttonStatus={false}
           color={"primary"}
+          colorText={"green"}
+
         />
       </Budgetboxs_div>
     </Header_div>

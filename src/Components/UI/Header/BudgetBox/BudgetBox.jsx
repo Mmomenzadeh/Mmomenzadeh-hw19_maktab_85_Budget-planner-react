@@ -14,6 +14,17 @@ const handleColorType = color => {
   }
   };
 
+  const handleTextColorType = color => {
+    switch (color) {
+    case "gray":
+    return "#555";
+    case "green":
+    return "#23612e";
+    default:
+    return "#104d8f";
+    }
+    }
+
 const Budgetbox_div = styled.div`
   width: 350px;
   padding: 1rem;
@@ -23,7 +34,7 @@ const Budgetbox_div = styled.div`
   border-radius: 0.3rem;
   align-items: center;
   font-size: 18px;
-  color: #213547;
+  color: ${({colorText})=>handleTextColorType(colorText)}
 `;
 
 const Btn_budgetbox = styled.button`
@@ -35,7 +46,7 @@ const Btn_budgetbox = styled.button`
   cursor: pointer;
 `;
 
-const BudgetBox = ({ budgetPlanner, mony, buttonStatus, color ,setBudget  }) => {
+const BudgetBox = ({ budgetPlanner, mony, buttonStatus, color ,setBudget ,colorText }) => {
   const [showModal, setShowModal] = useState(false);
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
@@ -43,7 +54,7 @@ const BudgetBox = ({ budgetPlanner, mony, buttonStatus, color ,setBudget  }) => 
 
   return (
     <>
-      <Budgetbox_div color={color}>
+      <Budgetbox_div color={color} colorText={colorText}>
         <p>{`${budgetPlanner} :$ ${mony}`}</p>
         {buttonStatus ? (
           <Btn_budgetbox onClick={openModal}>Edite</Btn_budgetbox>
